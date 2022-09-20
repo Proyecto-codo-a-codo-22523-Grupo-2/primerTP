@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.no-display {
+  display: none;
+}
+
 html {
   --color-principal   : #98D279;
   --color-secundario  : #6D9933;
@@ -234,6 +238,10 @@ p {
   border-radius: 20px;
 }
 
+.card img {
+  width: 50%;
+}
+
 .price {
   color: black;
   font-size: 22px;
@@ -243,14 +251,18 @@ p {
   border: none;
   outline: 0;
   padding: 12px;
-  color: var(--color-terciario);
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: max-content;
   height: auto;
   font-size: 18px;
   border-radius: 20px;
+}
+
+.card button a {
+  color: var(--color-terciario);
+  margin: 0 auto;
 }
 
 .card button:hover {
@@ -309,13 +321,6 @@ footer {
   font-weight: bold;
 }
 .footericon,
-.footeritem {
-  display: inline-block;
-  align-self: center;
-  padding: 0.5em;
-  border: 1px solid #88bf40;
-  border-radius: 0.25em;
-}
 .footeritem {
   display: inline-block;
   align-self: center;
