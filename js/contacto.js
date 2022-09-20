@@ -5,7 +5,7 @@ function validateForm() {
 
   if (name.value == "") {
     document.getElementById("errorname").innerHTML =
-      "Please enter a valid name";
+      "Por favor ingrese un nombre válido";
     name.focus();
     return false;
   } else {
@@ -14,7 +14,7 @@ function validateForm() {
 
   if (email.value == "") {
     document.getElementById("erroremail").innerHTML =
-      "Please enter a valid email address";
+      "Por favor ingrese un email válido";
     email.focus();
     return false;
   } else {
@@ -23,21 +23,21 @@ function validateForm() {
 
   if (email.value.indexOf("@", 0) < 0) {
     document.getElementById("erroremail").innerHTML =
-      "Please enter a valid email address";
+      "Por favor ingrese un email válido";
     email.focus();
     return false;
   }
 
   if (email.value.indexOf(".", 0) < 0) {
     document.getElementById("erroremail").innerHTML =
-      "Please enter a valid email address";
+      "Por favor ingrese un email válido";
     email.focus();
     return false;
   }
 
   if (message.value == "") {
     document.getElementById("errormsg").innerHTML =
-      "Please enter a valid message";
+      "Por favor ingrese un mensaje válido";
     message.focus();
     return false;
   } else {
