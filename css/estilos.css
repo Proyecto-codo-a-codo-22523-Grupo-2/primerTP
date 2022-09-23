@@ -230,7 +230,8 @@ p {
 /*Productos Destacados*/
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  width: 80%;
+  max-width: 700px;
   margin: auto;
   text-align: center;
   font-family: "Lora", serif, "Fira Sans", sans-serif;
@@ -249,12 +250,13 @@ p {
 
 .card button {
   border: none;
+  margin: 10px;
   outline: 0;
   padding: 12px;
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: max-content;
+  width: 50%;
   height: auto;
   font-size: 18px;
   border-radius: 20px;
@@ -293,7 +295,7 @@ p {
 /*Footer*/
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px 10px;
   grid-auto-rows: minmax(200px, auto);
   
