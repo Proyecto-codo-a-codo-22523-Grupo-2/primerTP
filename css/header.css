@@ -2,7 +2,7 @@ html {
     --color-principal   : #98D279;
     --color-secundario  : #6D9933;
     --color-terciario   : #FEFBFC;
-    --color-detalles    : #D7B088;
+    --color-detalles    : #f7b26b;
   
     --fuente-principal  : 'Lora', serif;
     --fuente-secundaria : 'Fira Sans', sans-serif;
@@ -23,38 +23,77 @@ header {
 
 header .logoimage {
     position: absolute;
-    min-width: 100px;
+    width: 200px;
+    padding-left: 20px;
     left: 0;
     top: 0;
 }
 
 header .navbar {
-    width: 40%;
     min-width: 400px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    z-index: 1;
 }
 
 header .navbar ul {
     display: flex;
     justify-content: space-around;
+    height: 40px;
+    align-items: center;
+}
+
+header .navbar ul>* {
+    border-right: black 2px solid;
+}
+
+header .navbar ul li:last-child {
+    border: none;
+}
+
+header .navbar li {
+    padding: 0 23px;
+}
+
+header .navbar a:hover, header .navbar p:hover {
+    font-weight: bolder;
 }
 
 header .dropdown {
-    position: relative;   
+    position: relative;
+}
+
+header .productos {
+    width: 135px;
+    height: 20px;
 }
 
 header .dropdown-content-container {
     overflow: hidden;
+    position: relative;
+    top: 5px;
+    left: -16px;
 }
 
 header .dropbtn .dropdown-content {
     background-color: var(--color-principal);
     transition: all 0.3s linear;
     transform: translateY(0px);
+    padding: 8px;
+    border-radius: 0 0 7px 7px;
+    border: 2px solid black;
+    border-top-width: 0;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
 }
 
-header .productos .dropbtn.hidden .dropdown-content-container .dropdown-content {
+header .productos.hidden .dropbtn .dropdown-content-container .dropdown-content {
     transform: translateY(-100%);
+}
+
+header .dropdown-content a {
+    padding: 8px 0;
+    border-top: 1px solid black;
 }
 
 
@@ -74,7 +113,7 @@ header .icono-dropdown {
     transition: all 0.3s linear;
 }
 
-header .productos .dropbtn.hidden .icono-dropdown {
+header .productos.hidden .dropbtn .icono-dropdown {
     transform: rotate(0deg);
 }
 
@@ -83,8 +122,71 @@ header .productos .dropbtn .icono-dropdown {
 }
 
 header .icono-hamburguesa {
+    display: none;
     position: fixed;
     width: 40px;
     right: 30px;
     top: 30px;
+}
+
+@media only screen and (max-width: 849px) {
+    header {
+        height: 135px;
+    }
+
+    header .logoimage {
+        width: 150px;
+    }
+
+    header .icono-hamburguesa {
+        display: inline-block;
+        z-index: 1;
+        background-color: var(--color-terciario);
+        border-radius: 6px;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: 0;
+        background-image: url(../recursos/recikli-logo.png);
+        background-size: contain;
+        background-position-x: center;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        background-color: var(--color-principal);
+        transform: translateX(80px);
+        border-left: 8px double var(--color-detalles);
+        transition: all 0.3s linear;
+    }
+
+    header .navbar ul {
+        flex-direction: column;
+        width: 80vw;
+        height: 110vh;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    header .navbar ul>* {
+        background-color: var(--color-terciario);
+        padding: 10px;
+        border-radius: 12px;
+        height: 40px;
+        border: none;
+        margin: 20px 5%;
+        box-shadow: 2px 2px 4px 0px rgb(0 0 0 / 75%);
+    }
+
+    header .dropdown-content-container {
+        overflow: hidden;
+        position: relative;
+        top: 9px;
+        left: -2px;
+    }
+
+    header .navbar.hidden {
+        transform: translateX(100vw);
+    }
 }
