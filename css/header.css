@@ -159,6 +159,7 @@ header .icono-hamburguesa {
         transform: translateX(80px);
         border-left: 8px double var(--color-detalles);
         transition: all 0.3s linear;
+        transform: translateX(-20%);
     }
 
     header .navbar ul {
