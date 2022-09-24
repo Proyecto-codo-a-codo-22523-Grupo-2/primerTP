@@ -113,11 +113,11 @@ header .icono-dropdown {
     transition: all 0.3s linear;
 }
 
-header .productos.hidden .dropbtn .icono-dropdown {
+header .productos.hidden .icono-dropdown {
     transform: rotate(0deg);
 }
 
-header .productos .dropbtn .icono-dropdown {
+header .productos .icono-dropdown {
     transform: rotate(-180deg);
 }
 
