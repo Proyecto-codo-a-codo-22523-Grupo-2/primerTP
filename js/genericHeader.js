@@ -36,7 +36,7 @@ let contenidoHeader = `
   <nav class="navbar" role="navigation">
     <ul>
       <li> <a href="${classHeader.contains("index") ? linksIndex.index : classHeader.contains("nosotros") ? linksNosotros.index : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.index : classHeader.contains("productosComerciales") ? linksProductosComerciales.index : "#"}">Home</a> </li>
-      <li> <a href="${classHeader.contains("nosotros") ? linksIndex.nosotros : classHeader.contains("nosotros") ? linksNosotros.nosotros : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.nosotros : classHeader.contains("productosComerciales") ? linksProductosComerciales.nosotros : "#"}">Nosotros</a> </li>
+      <li> <a href="${classHeader.contains("index") ? linksIndex.nosotros : classHeader.contains("nosotros") ? linksNosotros.nosotros : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.nosotros : classHeader.contains("productosComerciales") ? linksProductosComerciales.nosotros : "#"}">Nosotros</a> </li>
       <li class="dropdown productos hidden">
         <p class="productos-con-icono-dropdown">
           Productos
@@ -48,8 +48,8 @@ let contenidoHeader = `
 
           <div class="dropdown-content-container">
             <div class="dropdown-content">
-              <a href="${classHeader.contains("productosHogarenos") ? linksIndex.productosHogarenos : classHeader.contains("nosotros") ? linksNosotros.productosHogarenos : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosHogarenos : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosHogarenos : "#"}">Residenciales</a>
-              <a href="${classHeader.contains("productosComerciales") ? linksIndex.productosComerciales : classHeader.contains("nosotros") ? linksNosotros.productosComerciales : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosComerciales : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosComerciales : "#"}">Comerciales</a>
+              <a href="${classHeader.contains("index") ? linksIndex.productosResidenciales : classHeader.contains("nosotros") ? linksNosotros.productosResidenciales : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosResidenciales : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosResidenciales : "#"}">Residenciales</a>
+              <a href="${classHeader.contains("index") ? linksIndex.productosComerciales : classHeader.contains("nosotros") ? linksNosotros.productosComerciales : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosComerciales : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosComerciales : "#"}">Comerciales</a>
             </div>
           </div>
       </li>
