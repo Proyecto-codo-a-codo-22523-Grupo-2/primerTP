@@ -31,7 +31,7 @@ let linksProductosComerciales = {
 
 let contenidoHeader = `
 <div>
-  <img class="logoimage" src="./recursos/recikli-logo.png" alt="Logo Recikli">
+  <img class="logoimage" src="${classHeader.contains("index") ? "./recursos/recikli-logo.png" : "../recursos/recikli-logo.png"}" alt="Logo Recikli">
 
   <nav class="navbar" role="navigation">
     <ul>
