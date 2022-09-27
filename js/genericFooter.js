@@ -1,6 +1,10 @@
 let etiquetaFooter = document.querySelector("footer")
 let classFooter = etiquetaFooter.classList
 
+function rutaRelativa() {
+    classFooter.contains("index") ? "." : ".."
+}
+
 let contenidoFooter = `
 <div class="primera-parte">
     <div class="nuestro-local">
@@ -14,15 +18,15 @@ let contenidoFooter = `
     <div class="contacto">
         <h4>Contacto</h4>
         <div>
-            <img src="${classFooter.contains("index") ? "." : ".."}/recursos/whatsapp-logo-24.png"/>
+            <img src="${rutaRelativa()}/recursos/whatsapp-logo-24.png"/>
             <span>(+54)011-5555-2626</span>    
         </div>
         <div>
-            <img src="${classFooter.contains("index") ? "." : ".."}/recursos/gmail-logo-24.png"/>
+            <img src="${rutaRelativa()}/recursos/gmail-logo-24.png"/>
             <span>m_rossi93@hotmail.com</span>
         </div>
         <div>
-            <img src="${classFooter.contains("index") ? "." : ".."}/recursos/telegram-logo-24.png"/>
+            <img src="${rutaRelativa()}/recursos/telegram-logo-24.png"/>
             <span>+54)11-6455-1800</span>
         </div>
     </div>
@@ -31,11 +35,11 @@ let contenidoFooter = `
 <div class="redes">
     <h4>Redes</h4>
     <ul>
-        <li><a href="#"><img src="${classFooter.contains("index") ? "." : ".."}/recursos/facebook-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${classFooter.contains("index") ? "." : ".."}/recursos/instagram-alt-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${classFooter.contains("index") ? "." : ".."}/recursos/youtube-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${classFooter.contains("index") ? "." : ".."}/recursos/twitter-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${classFooter.contains("index") ? "." : ".."}/recursos/linkedin-logo-24.png"/></a></li>
+        <li><a href="#"><img src="${rutaRelativa()}/recursos/facebook-logo-24.png"/></a></li>
+        <li><a href="#"><img src="${rutaRelativa()}/recursos/instagram-alt-logo-24.png"/></a></li>
+        <li><a href="#"><img src="${rutaRelativa()}/recursos/youtube-logo-24.png"/></a></li>
+        <li><a href="#"><img src="${rutaRelativa()}/recursos/twitter-logo-24.png"/></a></li>
+        <li><a href="#"><img src="${rutaRelativa()}/recursos/linkedin-logo-24.png"/></a></li>
     </ul>
 </div>
 
