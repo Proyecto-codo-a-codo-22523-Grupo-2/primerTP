@@ -29,14 +29,61 @@ let linksProductosComerciales = {
   productosComerciales: "#"
 }
 
+function headerTieneClase(clase) {
+  return classHeader.contains(clase)
+}
+
+let arrayLinksIndex = [
+  linksIndex.index,
+  linksNosotros.index,
+  linksProductosHogarenos.index,
+  linksProductosComerciales.index
+]
+
+let arrayLinksNosotros = [
+  linksIndex.nosotros,
+  linksNosotros.nosotros,
+  linksProductosHogarenos.nosotros,
+  linksProductosComerciales.nosotros
+]
+
+let arrayLinksProductosResidenciales = [
+  linksIndex.productosResidenciales,
+  linksNosotros.productosResidenciales,
+  linksProductosHogarenos.productosResidenciales,
+  linksProductosComerciales.productosResidenciales
+]
+
+let arrayLinksProductosComerciales = [
+  linksIndex.productosComerciales,
+  linksNosotros.productosComerciales,
+  linksProductosHogarenos.productosComerciales,
+  linksProductosComerciales.productosComerciales
+]
+
+let arrayClases = ["index", "nosotros", "productosHogarenos", "productosComerciales"]
+
+function linkCorrecto(arrayLinks) {
+  let link
+
+  for(let i=0; i < arrayLinks.length; i++) {
+    if(link == undefined){
+      if(headerTieneClase(arrayClases[i])) {
+        link = arrayLinks[i]
+      }
+    }
+  }
+  return link
+}
+
 let contenidoHeader = `
 <div>
-  <img class="logoimage" src="${classHeader.contains("index") ? "./recursos/recikli-logo.png" : "../recursos/recikli-logo.png"}" alt="Logo Recikli">
+  <img class="logoimage" src="${headerTieneClase("index") ? "./recursos/recikli-logo.png" : "../recursos/recikli-logo.png"}" alt="Logo Recikli">
 
   <nav class="navbar" role="navigation">
     <ul>
-      <li> <a href="${classHeader.contains("index") ? linksIndex.index : classHeader.contains("nosotros") ? linksNosotros.index : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.index : classHeader.contains("productosComerciales") ? linksProductosComerciales.index : "#"}">Home</a> </li>
-      <li> <a href="${classHeader.contains("index") ? linksIndex.nosotros : classHeader.contains("nosotros") ? linksNosotros.nosotros : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.nosotros : classHeader.contains("productosComerciales") ? linksProductosComerciales.nosotros : "#"}">Nosotros</a> </li>
+      <li> <a href="${linkCorrecto(arrayLinksIndex)}">Home</a> </li>
+      <li> <a href="${linkCorrecto(arrayLinksNosotros)}">Nosotros</a> </li>
       <li class="dropdown productos hidden">
         <p class="productos-con-icono-dropdown">
           Productos
@@ -48,8 +95,8 @@ let contenidoHeader = `
 
           <div class="dropdown-content-container">
             <div class="dropdown-content">
-              <a href="${classHeader.contains("index") ? linksIndex.productosResidenciales : classHeader.contains("nosotros") ? linksNosotros.productosResidenciales : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosResidenciales : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosResidenciales : "#"}">Residenciales</a>
-              <a href="${classHeader.contains("index") ? linksIndex.productosComerciales : classHeader.contains("nosotros") ? linksNosotros.productosComerciales : classHeader.contains("productosHogarenos") ? linksProductosHogarenos.productosComerciales : classHeader.contains("productosComerciales") ? linksProductosComerciales.productosComerciales : "#"}">Comerciales</a>
+              <a href="${linkCorrecto(arrayLinksProductosResidenciales)}">Residenciales</a>
+              <a href="${linkCorrecto(arrayLinksProductosComerciales)}">Comerciales</a>
             </div>
           </div>
       </li>

@@ -2,7 +2,7 @@ let etiquetaFooter = document.querySelector("footer")
 let classFooter = etiquetaFooter.classList
 
 function rutaRelativa() {
-    classFooter.contains("index") ? "." : ".."
+    return classFooter.contains("index") ? "." : ".."
 }
 
 let contenidoFooter = `
