@@ -1,0 +1,237 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --color-principal   : #98D279;
+  --color-secundario  : #6D9933;
+  --color-terciario   : #FEFBFC;
+  --color-detalles    : #D7B088;
+
+  --fuente-principal  : 'Lora', serif;
+  --fuente-secundaria : 'Fira Sans', sans-serif;
+  --fuente-detalle    : 'Dancing Script', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.no-display {
+  display: none;
+}
+
+body {
+  font-family: "Lora", serif, "Fira Sans", sans-serif;
+  background-color: var(--color-terciario);
+  margin: 0;
+  font-size: 1em;
+  width: 100%;
+  height: auto;
+  min-width: fit-content;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1400px;
+  background: var(--color-terciario);
+}
+
+img.decoracion-top-index-main {
+  width: 100%;
+  padding: 10px;
+}
+
+/*Productos Destacados*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  font-family: "Lora", serif, "Fira Sans", sans-serif;
+  background-color: var(--color-terciario);
+  border-radius: 20px;
+}
+
+.card img {
+  width: 50%;
+}
+
+.price {
+  color: black;
+  font-size: 22px;
+}
+
+.card button {
+  color: white;
+  border: none;
+  margin: 10px;
+  outline: 0;
+  padding: 12px;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  height: auto;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.card button a {
+  color: var(--color-terciario);
+  margin: 0 auto;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+#productos_destacados {
+  background-color: var(--color-terciario);
+  border-style: none;
+  border-color: black 0.8;
+  align-items: stretch;
+  padding: 20px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+.flex-container > div {
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  flex-flow: row;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
+  grid-auto-rows: minmax(200px, auto);
+}
+
+/*Nosotros wrapper*/
+
+/* .wrapper2 {
+  display: grid;
+  grid-template-columns: 2;
+  grid-auto-rows: minmax(300px, auto);
+} */
+
+.wrapper2 {
+  display: grid;
+  grid-auto-rows: minmax(300px, auto);
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+  padding: 30px;
+}
+.text:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+.equipo {
+  display: flex;
+
+}
+
+.llamenos-contacto span{
+  font-weight: bolder;
+}
+
+.card2{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: "Lora", serif, "Fira Sans", sans-serif;
+  background-color: var(--color-terciario);
+  border-radius: 20px;
+}
+
+/*Contacto form */
+.form-style {
+  margin: 10px auto;
+  width: 400px;
+  padding: 20px 12px 10px 20px;
+  font: 14px "Lora", serif, "Fira Sans", sans-serif;
+}
+
+.form-style td {
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+
+.form-style label {
+  margin: 0 0 3px 0;
+  padding: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+.form-style .required {
+  color: red;
+}
+.form-style input[type="submit"],
+.form-style input[type="reset"] {
+  background: #4eb5f1;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: var(--color-terciario);
+}
+.form-style input[type="submit"]:hover,
+.form-style input[type="reset"]:hover {
+  background: #4eb5f1;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.form-style .field-textarea {
+  height: 100px;
+}
+.form-style input[type="text"],
+.form-style input[type="email"],
+textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #bebebe;
+  padding: 7px;
+  margin: 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+}
+.form-style .long {
+  width: 100%;
+}
+.form-style input[type="text"]:focus,
+.form-style input[type="email"]:focus,
+.form-style textarea:focus {
+  -moz-box-shadow: 0 0 8px #88d5e9;
+  -webkit-box-shadow: 0 0 8px #88d5e9;
+  box-shadow: 0 0 8px #88d5e9;
+  border: 1px solid #88d5e9;
+}
+.error {
+  color: #d8000c;
+  background-color: #ffbaba;
+}
