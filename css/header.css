@@ -99,6 +99,7 @@ header .dropdown-content a {
 
 header .dropbtn {
     position: absolute;
+    top: 32px;
 }
 
 header .productos-con-icono-dropdown {

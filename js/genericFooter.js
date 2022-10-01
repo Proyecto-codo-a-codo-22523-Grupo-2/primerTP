@@ -27,7 +27,7 @@ let contenidoFooter = `
         </div>
         <div>
             <img src="${rutaRelativa()}/recursos/telegram-logo-24.png"/>
-            <span>+54)11-6455-1800</span>
+            <span>(+54)11-6455-1800</span>
         </div>
     </div>
 </div>
