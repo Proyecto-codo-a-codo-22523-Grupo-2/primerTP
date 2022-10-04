@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/estilos.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/carrousel.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Sans:wght@300&family=Lora&display=swap">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,95 +29,54 @@
 
     <p>Ofrecemos energía limpia y sostenible, todo mientras forjamos un camino responsable hacia el futuro.</p>
 
-    <!--Card de producto-->
     <h3>Productos Destacados</h3>
-    <section id="productos_destacados" class="wrapper">
 
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
+    <div class="contenedor-principal-carrousel">
 
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right girar-completamente card-anterior" viewBox="0 0 16 16">
+        <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+      </svg>
 
-        <a href="./paginas/productos.html">
-          <button>
-            Ver más
-          </button>
-        </a>
-      </div>
+      <section class="contenedor-carrousel-destacados">
+        
+        <div class="carrousel-destacados">
+          <ul class="contenedor-cards-carrousel">
 
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
+            <template class="template-card-carrousel">
+              <li class="card-carrousel" style="transform: translateX(0%);">
+                <img src="#" alt="Vacío">
+                <h4>{nombre}</h4>
+                <p class="precio">{precio}</p>
+  
+                <p class="descripcion">{descripcion}</p>
+  
+                <a href="#">
+                  <button>
+                    Ver más
+                  </button>
+                </a>
+              </li>
+            </template>
 
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
+            <!-- Esto se autogenera con JS a partir del template -->
 
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
+          </ul>
+        
+          <ul class="controlador-carrousel">
+            <template class="boton-controlador-carrousel">
+              <li>&bullet;</li>
+            </template>
+            <!-- Esto se autogenera con JS -->
+          </ul>
+        
+        </div>      
+      </section>
 
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-right card-siguiente" viewBox="0 0 16 16">
+        <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+      </svg>
+    </div>
 
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
-
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
-
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
-
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
-
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-      <div class="card">
-        <img src="./recursos/panel 20w.png" alt="Panel Solar">
-        <h4>Panel Solar 20W</h4>
-        <p class="price">$15.000</p>
-
-        <p>Panel Solar 20W: Encargado de transformar la energía del sol en electricidad. </p>
-
-        <button><a href="./paginas/productos.html">Ver más</a></button>
-      </div>
-
-    </section>
   </main>
 
   <footer class="index">
@@ -125,6 +85,7 @@
   
   <script src="./js/genericHeader.js"></script>
   <script src="./js/genericFooter.js"></script>
+  <script src="./js/carrousel.js"></script>
 </body>
 
 </html>

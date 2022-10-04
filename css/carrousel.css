@@ -1,0 +1,178 @@
+html {
+  --color-principal   : #98D279;
+  --color-secundario  : #6D9933;
+  --color-terciario   : #FEFBFC;
+  --color-detalles    : #f7b26b;
+}
+
+.girar-completamente {
+    transform: rotate(180deg);
+}
+
+.contenedor-principal-carrousel {
+    display: flex;
+    width: 100%;
+    max-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.contenedor-principal-carrousel svg {
+    width: 30px;
+    aspect-ratio: 1;
+    background-color: var(--color-principal);
+    border-radius: 6px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    transition: box-shadow 0.05s linear;
+}
+
+.contenedor-principal-carrousel svg:hover {
+  background-color: var(--color-secundario);
+}
+
+.contenedor-principal-carrousel svg:active {
+  box-shadow: 0 0px 10px 1px black;
+}
+
+.contenedor-carrousel-destacados {
+    width: 90%;    
+    border: 3px solid  rgba(0,0,0,0.5);;
+}
+
+.carrousel-destacados {
+	position: relative;
+  height: 100%;
+}
+
+.contenedor-cards-carrousel {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+}
+
+.card-carrousel {
+	width: 100vw;
+	flex-shrink: 0;
+  transition: all 0.5s ease-in-out;
+    
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  margin: 50px;
+  text-align: center;
+  font-family: "Lora", serif, "Fira Sans", sans-serif;
+  background-color: var(--color-terciario);
+  border-radius: 20px;
+}
+
+.contenedor-cards-carrousel:hover .card-carrouse {
+	animation-play-state: paused;
+}
+
+.card-carrouse:target {
+	animation-name: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 50;
+}
+
+.controlador-carrousel {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.controlador-carrousel li {
+	margin: 0 0.5rem;
+	display: inline-block;
+	vertical-align: top;
+  transition: all 0.5s ease-in-out;
+
+  text-decoration: none;
+  color: lightgray;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.controlador-carrousel li.seleccionado {
+    color: white;
+}
+
+.card-carrousel img {
+  width: 50%;
+}
+
+.precio {
+  color: black;
+  font-size: 22px;
+}
+
+.card-carrousel button {
+  color: white;
+  border: none;
+  margin: 10px;
+  outline: 0;
+  padding: 12px;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  height: auto;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.card-carrousel button a {
+  color: var(--color-terciario);
+  margin: 0 auto;
+}
+
+.card-carrousel button:hover {
+  opacity: 0.7;
+}
+
+#productos_destacados {
+  background-color: var(--color-terciario);
+  border-style: none;
+  border-color: black 0.8;
+  align-items: stretch;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 849px) {
+  .card-carrousel {
+    width: 50vw;
+    min-width: 230px;
+    margin: 20px 10px;
+  }
+  
+  .contenedor-carrousel-destacados {
+    width: 70%;
+    height: 410px;
+  }
+
+  .descripcion {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .contenedor-carrousel-destacados {
+    height: 375px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contenedor-carrousel-destacados {
+    height: 350px;
+  }
+}

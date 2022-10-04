@@ -192,3 +192,9 @@ header .icono-hamburguesa {
         transform: translateX(100vw);
     }
 }
+
+@media only screen and (max-width: 400px) {
+    header .navbar ul {
+        height: 125vh;
+    }
+}
