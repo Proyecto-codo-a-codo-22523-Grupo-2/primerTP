@@ -44,7 +44,7 @@ html {
 
 .carrousel-destacados {
 	position: relative;
-  height: 100%;
+  height: max-content;
 }
 
 .contenedor-cards-carrousel {
@@ -108,7 +108,8 @@ html {
 }
 
 .card-carrousel img {
-  width: 50%;
+  max-height: 35vh;
+  aspect-ratio: 1;
 }
 
 .precio {
@@ -119,7 +120,7 @@ html {
 .card-carrousel button {
   color: white;
   border: none;
-  margin: 10px;
+  margin: 4%;
   outline: 0;
   padding: 12px;
   background-color: #000;
@@ -150,29 +151,16 @@ html {
 
 @media only screen and (max-width: 849px) {
   .card-carrousel {
-    width: 50vw;
+    width: 100%;
     min-width: 230px;
-    margin: 20px 10px;
+    margin:12% 0px;
   }
   
   .contenedor-carrousel-destacados {
     width: 70%;
-    height: 410px;
   }
 
   .descripcion {
     display: none;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .contenedor-carrousel-destacados {
-    height: 375px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .contenedor-carrousel-destacados {
-    height: 350px;
   }
 }

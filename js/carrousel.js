@@ -106,27 +106,42 @@ function agregoEventosCarrousel() {
     })
 }
 
+function colorearBotonesSelectores(botonesControladores, criterioParaDespintar, criterioParaPintar) {
+    botonesControladores.forEach(boton =>{
+        if(boton.id.includes(criterioParaDespintar) || boton.id.includes(criterioParaPintar)){
+            boton.classList.toggle("seleccionado")
+            boton.classList.toggle("no-seleccionado")
+        }
+    })
+}
+
 function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
     return ()=>{
             const valorPrevTranslate = elementosDeslizables[0].style.transform
             const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(11, -2))
             
+            const numeroBotonSeleccionadoAntes = (Number(valorNumericoPrevioTranslate.toString().slice(0,-2))*-1 + 1).toString()
             if(valorNumericoPrevioTranslate != 0) {
-                const numeroBotonSeleccionadoAntes = (Number(valorNumericoPrevioTranslate.toString().slice(0,-2))*-1 + 1).toString()
                 elementosDeslizables.forEach(elemento =>{
                     //Muestro el elemento anterior (cuanto menor el valor del translateX más adelante está el producto mostrado)
                     elemento.style.transform = `translateX(${valorNumericoPrevioTranslate+100}%)`
 
                     //Luego ilumino el botón inferior correspondiente a la card actual
-                    botonesControladores.forEach(boton=>{
-                        if(boton.id.includes("controlador-" + numeroBotonSeleccionadoAntes)){
-                            boton.classList.toggle("seleccionado")
-                            boton.classList.toggle("no-seleccionado")
-                        } else if(boton.id.includes("controlador-" + (Number(numeroBotonSeleccionadoAntes)-1).toString())){
-                            boton.classList.toggle("seleccionado")
-                            boton.classList.toggle("no-seleccionado")
-                        }
-                    })
+                    colorearBotonesSelectores(
+                        botonesControladores,"controlador-" + numeroBotonSeleccionadoAntes,
+                        "controlador-" + (Number(numeroBotonSeleccionadoAntes)-1).toString()
+                    )
+                })
+            //Si es el primer ítem de la lista voy al último
+            } else {
+                elementosDeslizables.forEach(elemento =>{
+                    elemento.style.transform = `translateX(${-100 * (elementosDeslizables.length - 1)}%)`
+
+                    colorearBotonesSelectores(
+                        botonesControladores,
+                        "controlador-" + numeroBotonSeleccionadoAntes,
+                        "controlador-" + (botonesControladores.length).toString()
+                    )
                 })
             }
     }
@@ -145,19 +160,25 @@ function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
                     elemento.style.transform = `translateX(${valorNumericoPrevioTranslate-100}%)`
 
                     //Luego ilumino el botón inferior correspondiente a la card actual
-                    botonesControladores.forEach(boton=>{
-                        if(boton.id.includes("controlador-" + cardSeleccionadaPreviamente.toString())){
-                            boton.classList.toggle("seleccionado")
-                            boton.classList.toggle("no-seleccionado")
-                        } else if(boton.id.includes("controlador-" + (Number(cardSeleccionadaPreviamente.toString())+1).toString())){
-                            boton.classList.toggle("seleccionado")
-                            boton.classList.toggle("no-seleccionado")
-                        }
-                    })
+                    colorearBotonesSelectores(
+                        botonesControladores,
+                        "controlador-" + cardSeleccionadaPreviamente.toString(),
+                        "controlador-" + (Number(cardSeleccionadaPreviamente.toString())+1).toString()
+                    )
                 })
-            }
+            //Si es el último item de la lista voy al primero
+            } else {
+                elementosDeslizables.forEach(elemento =>{
+                    elemento.style.transform = `translateX(0%)`
+
+                    colorearBotonesSelectores(
+                        botonesControladores,
+                        "controlador-" + cardSeleccionadaPreviamente.toString(),
+                        "controlador-1"
+                    )
+                })    
+            }            
     }
-    
 }
 
 function controladorBotonInferior(elementosDeslizables, IDBoton, botonesControladores){
@@ -168,7 +189,7 @@ function controladorBotonInferior(elementosDeslizables, IDBoton, botonesControla
         elementosDeslizables.forEach(elemento=>{
             elemento.style.transform = `translateX(${nuevoValorTranslate}%)`
         })
-
+        
         botonesControladores.forEach(boton =>{
             boton.classList.remove("seleccionado")
             boton.classList.add("no-seleccionado")
