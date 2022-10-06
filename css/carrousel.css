@@ -60,7 +60,7 @@ html {
     
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 700px;
-  margin: 50px;
+  margin: 10px;
   text-align: center;
   font-family: "Lora", serif, "Fira Sans", sans-serif;
   background-color: var(--color-terciario);
@@ -109,6 +109,7 @@ html {
 
 .card-carrousel img {
   max-height: 35vh;
+  max-width: 100%;
   aspect-ratio: 1;
 }
 
@@ -151,9 +152,9 @@ html {
 
 @media only screen and (max-width: 849px) {
   .card-carrousel {
-    width: 100%;
+    width: 80%;
     min-width: 230px;
-    margin:12% 0px;
+    margin:12% 10px;
   }
   
   .contenedor-carrousel-destacados {

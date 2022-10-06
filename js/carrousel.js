@@ -1,3 +1,5 @@
+//De momento está hecho para que funcione con menos de 10 productos! Hace falta retocar los slices para que funcione con más
+
 const contenedorCards = document.querySelector(".contenedor-cards-carrousel")
 const templateCardCarrousel = document.querySelector(".template-card-carrousel").content
 
@@ -37,12 +39,76 @@ const json = [
         precio: "$15.000",
         descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
         linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
+    },
+    {
+        img: "./recursos/panel 20w.png",
+        imgAlt: "Panel Solar",
+        nombre: "Panel Solar 20W",
+        precio: "$15.000",
+        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
+        linkDelVerMas: "./paginas/productosHogarenos.html"
     }
 ]
 
 function cargoContenidoCarrousel() {
 
-    json.forEach(producto =>{
+    json.map((producto, index) =>{
 
         const clone = templateCardCarrousel.cloneNode(true)
     
@@ -52,6 +118,8 @@ function cargoContenidoCarrousel() {
         const precio = producto.precio
         const descripcion = producto.descripcion
         const linkDelVerMas = producto.linkDelVerMas
+
+        clone.querySelector(".card-carrousel").id = `card-${index + 1}`
     
         clone.querySelector("img").src = img
         clone.querySelector("img").alt = imgAlt
@@ -69,21 +137,19 @@ function cargoContenidoCarrousel() {
 }
 
 function cargoControladoresCarrousel() {
-    let i = 0
-    json.forEach(()=>{
-        i++
+    json.map((elemento, index) =>{
         const clone = templateElementoControlador.cloneNode(true)
 
         let claseElemento
 
-        if(i==1){
+        if(index == 0){
             claseElemento = "seleccionado"
         } else {
             claseElemento = "no-seleccionado"
         }
 
         clone.querySelector("li").classList.add(claseElemento)
-        clone.querySelector("li").id = `controlador-${i}`
+        clone.querySelector("li").id = `controlador-${ index + 1 }`
 
         fragment.appendChild(clone)
 
@@ -108,7 +174,7 @@ function agregoEventosCarrousel() {
 
 function colorearBotonesSelectores(botonesControladores, criterioParaDespintar, criterioParaPintar) {
     botonesControladores.forEach(boton =>{
-        if(boton.id.includes(criterioParaDespintar) || boton.id.includes(criterioParaPintar)){
+        if(boton.id == criterioParaDespintar || boton.id == criterioParaPintar){
             boton.classList.toggle("seleccionado")
             boton.classList.toggle("no-seleccionado")
         }
@@ -118,31 +184,34 @@ function colorearBotonesSelectores(botonesControladores, criterioParaDespintar, 
 function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
     return ()=>{
             const valorPrevTranslate = elementosDeslizables[0].style.transform
-            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(11, -2))
-            
-            const numeroBotonSeleccionadoAntes = (Number(valorNumericoPrevioTranslate.toString().slice(0,-2))*-1 + 1).toString()
-            if(valorNumericoPrevioTranslate != 0) {
+            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
+
+            const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
+            const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
+            console.log(numeroBotonSeleccionadoAntes)
+
+
+            if(numeroBotonSeleccionadoAntes > 1) {
                 elementosDeslizables.forEach(elemento =>{
                     //Muestro el elemento anterior (cuanto menor el valor del translateX más adelante está el producto mostrado)
-                    elemento.style.transform = `translateX(${valorNumericoPrevioTranslate+100}%)`
+                    elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate + 100}% - ${20 * (numeroBotonSeleccionadoAntes - 1)}px))`
 
-                    //Luego ilumino el botón inferior correspondiente a la card actual
-                    colorearBotonesSelectores(
-                        botonesControladores,"controlador-" + numeroBotonSeleccionadoAntes,
-                        "controlador-" + (Number(numeroBotonSeleccionadoAntes)-1).toString()
-                    )
                 })
+                //Luego ilumino el botón inferior correspondiente a la card actual
+                colorearBotonesSelectores(
+                    botonesControladores,"controlador-" + numeroBotonSeleccionadoAntes,
+                    "controlador-" + (Number(numeroBotonSeleccionadoAntes)-1).toString()
+                )
             //Si es el primer ítem de la lista voy al último
             } else {
                 elementosDeslizables.forEach(elemento =>{
-                    elemento.style.transform = `translateX(${-100 * (elementosDeslizables.length - 1)}%)`
-
-                    colorearBotonesSelectores(
-                        botonesControladores,
-                        "controlador-" + numeroBotonSeleccionadoAntes,
-                        "controlador-" + (botonesControladores.length).toString()
-                    )
+                    elemento.style.transform = `translateX(calc(${-100 * (elementosDeslizables.length - 1)+6}% - ${20 * (elementosDeslizables.length-1)}px))`
                 })
+                colorearBotonesSelectores(
+                    botonesControladores,
+                    "controlador-" + numeroBotonSeleccionadoAntes,
+                    "controlador-" + (botonesControladores.length).toString()
+                )
             }
     }
     
@@ -151,19 +220,21 @@ function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
 function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
     return ()=>{
             const valorPrevTranslate = elementosDeslizables[0].style.transform
-            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(11, -2))
-            const cardSeleccionadaPreviamente = Number(valorNumericoPrevioTranslate.toString().slice(0, -2))*-1 + 1
+            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
+
+            const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
+            const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
             
-            if(cardSeleccionadaPreviamente != json.length) {
+            if(numeroBotonSeleccionadoAntes < json.length) {
                 elementosDeslizables.forEach(elemento =>{
                     //Muestro el elemento siguiente (cuanto menor el valor del translateX más adelante está el producto mostrado)
-                    elemento.style.transform = `translateX(${valorNumericoPrevioTranslate-100}%)`
+                    elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate - 100}% - ${20 * (numeroBotonSeleccionadoAntes -1)}px))`
 
                     //Luego ilumino el botón inferior correspondiente a la card actual
                     colorearBotonesSelectores(
                         botonesControladores,
-                        "controlador-" + cardSeleccionadaPreviamente.toString(),
-                        "controlador-" + (Number(cardSeleccionadaPreviamente.toString())+1).toString()
+                        "controlador-" + numeroBotonSeleccionadoAntes.toString(),
+                        "controlador-" + (Number(numeroBotonSeleccionadoAntes.toString())+1).toString()
                     )
                 })
             //Si es el último item de la lista voy al primero
@@ -173,7 +244,7 @@ function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
 
                     colorearBotonesSelectores(
                         botonesControladores,
-                        "controlador-" + cardSeleccionadaPreviamente.toString(),
+                        "controlador-" + numeroBotonSeleccionadoAntes.toString(),
                         "controlador-1"
                     )
                 })    
@@ -183,18 +254,17 @@ function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
 
 function controladorBotonInferior(elementosDeslizables, IDBoton, botonesControladores){
     return ()=>{
-        const cardSeleccionada = Number(IDBoton.slice(-1))
-        const nuevoValorTranslate = (cardSeleccionada-1)*-1*100
-
+        const cardSeleccionada = Number(IDBoton.slice(IDBoton.indexOf("-")+1))
+        
         elementosDeslizables.forEach(elemento=>{
-            elemento.style.transform = `translateX(${nuevoValorTranslate}%)`
+            elemento.style.transform = `translateX(calc(${-1 * (100 * (cardSeleccionada - 1))}% - ${20 * (cardSeleccionada-1)}px))`
         })
         
         botonesControladores.forEach(boton =>{
             boton.classList.remove("seleccionado")
             boton.classList.add("no-seleccionado")
 
-            if(boton.id.includes("controlador-" + cardSeleccionada)){
+            if(boton.id == "controlador-" + cardSeleccionada){
                 boton.classList.toggle("seleccionado")
                 boton.classList.toggle("no-seleccionado")
             }

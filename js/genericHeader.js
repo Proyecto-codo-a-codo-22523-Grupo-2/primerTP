@@ -80,7 +80,7 @@ let contenidoHeader = `
 <div>
   <img class="logoimage" src="${headerTieneClase("index") ? "./recursos/recikli-logo.png" : "../recursos/recikli-logo.png"}" alt="Logo Recikli">
 
-  <nav class="navbar" role="navigation">
+  <nav class="navbar hidden" role="navigation">
     <ul>
       <li> <a href="${linkCorrecto(arrayLinksIndex)}">Home</a> </li>
       <li> <a href="${linkCorrecto(arrayLinksNosotros)}">Nosotros</a> </li>
