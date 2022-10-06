@@ -46,6 +46,10 @@ main {
   background: var(--color-terciario);
 }
 
+.main-index h2, .main-index .leyenda, .main-index .titulo-productos-destacados {
+  margin: 10px;
+}
+
 img.decoracion-top-index-main {
   width: 100%;
   padding: 10px;
@@ -289,7 +293,17 @@ textarea {
   margin: 20px;
 }
 
+@media only screen and (max-width: 1417px) {
+  .main-index {
+    max-width: 98vw;
+  }
+}
+
 @media only screen and (max-width: 849px) {
+  html {
+    font-size: 14px;
+  }
+
   .detalles-producto {
     display: flex;
     flex-direction: column;

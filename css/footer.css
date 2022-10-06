@@ -1,14 +1,3 @@
-html {
-    --color-principal   : #98D279;
-    --color-secundario  : #6D9933;
-    --color-terciario   : #FEFBFC;
-    --color-detalles    : #ea8a27;
-  
-    --fuente-principal  : 'Lora', serif;
-    --fuente-secundaria : 'Fira Sans', sans-serif;
-    --fuente-detalle    : 'Dancing Script', cursive;
-}
-
 footer .primera-parte {
     display: flex;
     justify-content: space-evenly;
