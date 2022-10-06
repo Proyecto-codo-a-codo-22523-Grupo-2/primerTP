@@ -151,7 +151,7 @@ header .icono-hamburguesa {
     header .navbar {
         position: fixed;
         top: 0;
-        background-image: url(../recursos/recikli-logo.png);
+        background-image: url(../recursos/recikli-logo.jpg);
         background-size: contain;
         background-position-x: center;
         background-position-y: center;

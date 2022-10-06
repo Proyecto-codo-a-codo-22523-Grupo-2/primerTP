@@ -1,5 +1,3 @@
-//De momento está hecho para que funcione con menos de 10 productos! Hace falta retocar los slices para que funcione con más
-
 const contenedorCards = document.querySelector(".contenedor-cards-carrousel")
 const templateCardCarrousel = document.querySelector(".template-card-carrousel").content
 
