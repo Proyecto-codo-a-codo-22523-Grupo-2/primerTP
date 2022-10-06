@@ -93,7 +93,6 @@ html {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  overflow-x: scroll;
 }
 
 .controlador-carrousel li {
@@ -164,6 +163,10 @@ html {
   
   .contenedor-carrousel-destacados {
     width: 70%;
+  }
+
+  .controlador-carrousel {    
+    overflow-x: scroll;
   }
 
   .descripcion {
