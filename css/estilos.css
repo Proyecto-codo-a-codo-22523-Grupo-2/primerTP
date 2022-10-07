@@ -89,12 +89,6 @@ h2{
 .epigraf{
   text-align: center;
 }
-/*Nosotros wrapper*/
-
-.rowN {
-display: block;
-align-items: center;
-}
 
 .mainNosotros{
   padding: 30px;
@@ -112,7 +106,7 @@ align-items: center;
 .equipo {
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: space-evenly;
 }
 
 .llamenos-contacto span{
@@ -122,13 +116,15 @@ align-items: center;
 .card2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
-  margin: auto;
   text-align: center;
   font-family: "Lora", serif, "Fira Sans", sans-serif;
   background-color: var(--color-terciario);
   border-radius: 20px;
   margin-bottom: 15px;
-  margin-right: 15px;
+}
+
+.card2 img {
+  width: 100%;
 }
 
 /*Contacto form */
