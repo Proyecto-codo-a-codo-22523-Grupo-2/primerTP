@@ -121,17 +121,16 @@ function colorearBotonesSelectores(botonesControladores, criterioParaDespintar, 
 
 function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
     return ()=>{
-            const valorPrevTranslate = elementosDeslizables[0].style.transform
-            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
-
-            const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
-            const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
-
+        
+        const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
+        const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
+        
+        const valorNumericoPrevioTranslate = numeroBotonSeleccionadoAntes * 100 - 100
 
             if(numeroBotonSeleccionadoAntes > 1) {
                 elementosDeslizables.forEach(elemento =>{
                     //Muestro el elemento anterior (cuanto menor el valor del translateX más adelante está el producto mostrado)
-                    elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate + 100}% - ${20 * (numeroBotonSeleccionadoAntes - 1)}px))`
+                    elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate + 100}% - ${20 * (numeroBotonSeleccionadoAntes - 1) - 40}px))`
 
                 })
                 //Luego ilumino el botón inferior correspondiente a la card actual
@@ -155,12 +154,11 @@ function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
 }
 
 function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
-    return ()=>{
-        const valorPrevTranslate = elementosDeslizables[0].style.transform
-        const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
-        
+    return ()=>{        
         const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
         const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
+
+        const valorNumericoPrevioTranslate = numeroBotonSeleccionadoAntes * 100 - 100
         
         if(numeroBotonSeleccionadoAntes < cantidadProductosDestacados) {
             elementosDeslizables.forEach(elemento =>{
