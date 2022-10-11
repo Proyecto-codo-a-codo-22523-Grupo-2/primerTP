@@ -6,152 +6,92 @@ const templateElementoControlador = document.querySelector(".boton-controlador-c
 
 
 const fragment = document.createDocumentFragment();
+let jsonProductos
+let cantidadProductosDestacados = 0
 
 document.addEventListener('DOMContentLoaded', () => {
-    cargoContenidoCarrousel()
-    cargoControladoresCarrousel()
-    agregoEventosCarrousel()
+    fetch("https://recikli-171c9-default-rtdb.firebaseio.com/productos.json")
+    .then((response)=>response.json())
+    .then((json)=>{
+        jsonProductos = json
+        jsonProductos.forEach(producto=>{
+            if(producto.destacado){
+                ++cantidadProductosDestacados
+            }
+        })
+        cargoContenidoCarrousel()
+        cargoControladoresCarrousel()
+        agregoEventosCarrousel()
+    })
 })
 
-const json = [
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    },
-    {
-        img: "./recursos/panel 20w.png",
-        imgAlt: "Panel Solar",
-        nombre: "Panel Solar 20W",
-        precio: "$15.000",
-        descripcion: "Panel Solar 20W: Encargado de transformar la energía del sol en electricidad.",
-        linkDelVerMas: "./paginas/productosHogarenos.html"
-    }
-]
 
 function cargoContenidoCarrousel() {
+    let indexProductoDestacado = 0
+    jsonProductos.map((producto) =>{
 
-    json.map((producto, index) =>{
+        if(producto.destacado) {
+            ++indexProductoDestacado
 
-        const clone = templateCardCarrousel.cloneNode(true)
-    
-        const img = producto.img
-        const imgAlt = producto.imgAlt
-        const nombre = producto.nombre
-        const precio = producto.precio
-        const descripcion = producto.descripcion
-        const linkDelVerMas = producto.linkDelVerMas
+            const clone = templateCardCarrousel.cloneNode(true)
+        
+            const img = producto.img
+            const nombre = producto.nombre
+            const precio = producto.precio
+            const descripcion = producto.descripcion
 
-        clone.querySelector(".card-carrousel").id = `card-${index + 1}`
-    
-        clone.querySelector("img").src = img
-        clone.querySelector("img").alt = imgAlt
-    
-        clone.querySelector("h4").innerHTML = nombre
-        clone.querySelector(".precio").innerHTML = precio
-        clone.querySelector(".descripcion").innerHTML = descripcion
-    
-        clone.querySelector("a").href = linkDelVerMas
-    
-        fragment.appendChild(clone)
-    
-        contenedorCards.appendChild(fragment)
+            let imgAlt = `Imágen ${producto.nombre}`
+
+            let linkDelVerMas
+            if(producto.categoria == "comercial") {
+                linkDelVerMas = "./paginas/productosComerciales.html"
+            } else if(producto.categoria == "residencial") {
+                linkDelVerMas = "./paginas/productosHogarenos.html"
+            } else {
+                console.error("Categoría del producto mal cargada")
+                linkDelVerMas = "#"
+            }
+
+            clone.querySelector(".card-carrousel").id = `card-${indexProductoDestacado}`
+        
+            clone.querySelector("img").src = `.${img}`
+            clone.querySelector("img").alt = imgAlt
+        
+            clone.querySelector("h4").innerHTML = nombre
+            clone.querySelector(".precio").innerHTML = precio
+            clone.querySelector(".descripcion").innerHTML = descripcion
+        
+            clone.querySelector("a").href = linkDelVerMas
+        
+            fragment.appendChild(clone)
+        
+            contenedorCards.appendChild(fragment)
+        }
     })
 }
 
 function cargoControladoresCarrousel() {
-    json.map((elemento, index) =>{
-        const clone = templateElementoControlador.cloneNode(true)
-
-        let claseElemento
-
-        if(index == 0){
-            claseElemento = "seleccionado"
-        } else {
-            claseElemento = "no-seleccionado"
+    let indexProductoDestacado = 0
+    jsonProductos.map((producto, index) => {
+        if(producto.destacado) {
+            ++indexProductoDestacado
+            const clone = templateElementoControlador.cloneNode(true)
+            
+            let claseElemento
+            
+            if(index == 0){
+                claseElemento = "seleccionado"
+            } else {
+                claseElemento = "no-seleccionado"
+            }
+            
+            clone.querySelector("li").classList.add(claseElemento)
+            clone.querySelector("li").id = `controlador-${indexProductoDestacado}`
+            
+            fragment.appendChild(clone)
+            
+            controladorCarrousel.appendChild(fragment)
         }
-
-        clone.querySelector("li").classList.add(claseElemento)
-        clone.querySelector("li").id = `controlador-${ index + 1 }`
-
-        fragment.appendChild(clone)
-
-        controladorCarrousel.appendChild(fragment)
     })
 }
 
@@ -186,7 +126,6 @@ function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
 
             const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
             const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
-            console.log(numeroBotonSeleccionadoAntes)
 
 
             if(numeroBotonSeleccionadoAntes > 1) {
@@ -217,36 +156,34 @@ function controladorBotonAnterior(elementosDeslizables, botonesControladores) {
 
 function controladorBotonSiguiente(elementosDeslizables, botonesControladores) {
     return ()=>{
-            const valorPrevTranslate = elementosDeslizables[0].style.transform
-            const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
-
-            const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
-            const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
-            
-            if(numeroBotonSeleccionadoAntes < json.length) {
-                elementosDeslizables.forEach(elemento =>{
-                    //Muestro el elemento siguiente (cuanto menor el valor del translateX más adelante está el producto mostrado)
-                    elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate - 100}% - ${20 * (numeroBotonSeleccionadoAntes -1)}px))`
-
-                    //Luego ilumino el botón inferior correspondiente a la card actual
-                    colorearBotonesSelectores(
-                        botonesControladores,
-                        "controlador-" + numeroBotonSeleccionadoAntes.toString(),
-                        "controlador-" + (Number(numeroBotonSeleccionadoAntes.toString())+1).toString()
-                    )
-                })
-            //Si es el último item de la lista voy al primero
-            } else {
-                elementosDeslizables.forEach(elemento =>{
-                    elemento.style.transform = `translateX(0%)`
-
-                    colorearBotonesSelectores(
-                        botonesControladores,
-                        "controlador-" + numeroBotonSeleccionadoAntes.toString(),
-                        "controlador-1"
-                    )
-                })    
-            }            
+        const valorPrevTranslate = elementosDeslizables[0].style.transform
+        const valorNumericoPrevioTranslate = Number(valorPrevTranslate.slice(17, valorPrevTranslate.indexOf("% - ")))
+        
+        const botonSeleccionadoAntes = document.querySelector(".controlador-carrousel .seleccionado")            
+        const numeroBotonSeleccionadoAntes = botonSeleccionadoAntes.id.slice(12)
+        
+        if(numeroBotonSeleccionadoAntes < cantidadProductosDestacados) {
+            elementosDeslizables.forEach(elemento =>{
+                //Muestro el elemento siguiente (cuanto menor el valor del translateX más adelante está el producto mostrado)
+                elemento.style.transform = `translateX(calc(${-1 * valorNumericoPrevioTranslate - 100}% - ${20 * (numeroBotonSeleccionadoAntes -1)}px))`
+                //Luego ilumino el botón inferior correspondiente a la card actual
+            })
+            colorearBotonesSelectores(
+                botonesControladores,
+                "controlador-" + numeroBotonSeleccionadoAntes.toString(),
+                "controlador-" + (Number(numeroBotonSeleccionadoAntes)+1).toString()
+            )
+        //Si es el último item de la lista voy al primero
+        } else {
+            elementosDeslizables.forEach(elemento =>{
+                elemento.style.transform = `translateX(0%)`
+            })    
+            colorearBotonesSelectores(
+                botonesControladores,
+                "controlador-" + numeroBotonSeleccionadoAntes.toString(),
+                "controlador-1"
+            )
+        }            
     }
 }
 
