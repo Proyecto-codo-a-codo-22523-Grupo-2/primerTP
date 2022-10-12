@@ -256,18 +256,16 @@ textarea {
 }
 
 .detalles-producto .precio {
-  grid-column: 1/2;
-  grid-row: 2/-1;
   height: 37px;
   align-self: self-end;
   margin-bottom: 20px;
 }
 
 .detalles-producto img {
-  grid-column: 2/-1;
   grid-row: 1/-1;
   margin: 0 auto;
   width: 100%;
+  aspect-ratio: 1;
   border-radius: 25px;
 }
 
