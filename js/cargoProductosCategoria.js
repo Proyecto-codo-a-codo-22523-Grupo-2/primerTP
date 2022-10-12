@@ -1,7 +1,7 @@
 const mainTag = document.querySelector("main")
 const mainID = mainTag.id
 
-const contenedorCardsProductos = document.querySelector(".productos")
+const contenedorCardsProductos = document.querySelector(".productosCard")
 const templateCardProducto = document.querySelector("#template-card-producto").content
 
 const fragment = document.createDocumentFragment();

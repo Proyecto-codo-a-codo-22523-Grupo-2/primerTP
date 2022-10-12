@@ -204,7 +204,7 @@ textarea {
   background-color: #ffbaba;
 }
 
-.productos {
+.productosCard {
   display: flex;
   margin: 20px;
   flex-wrap: wrap;
@@ -226,23 +226,19 @@ textarea {
 }
 /*Detalles producto  */
 .detalles-producto {
-  position: relative;
+  position:relative;
   text-align: left;
-
   width: 600px;
   padding: 30px;
   margin: 0 auto;
   background-color: var(--color-principal);
   box-shadow: 4px 5px 15px 0px rgb(0 0 0 / 75%);
-
   border-radius: 25px;
 
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-
-  grid-gap: 10px;
+  grid-gap: 30px;
 }
 
 .detalles-producto .descripcion-producto {
