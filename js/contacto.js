@@ -2,6 +2,7 @@ function validateForm() {
   var name = document.forms["myForm"]["name"];
   var email = document.forms["myForm"]["email"];
   var message = document.forms["myForm"]["message"];
+  var onlyLetters = /^[a-zA-Z]+$/;
 
   if (name.value == "") {
     document.getElementById("errorname").innerHTML =
@@ -10,6 +11,14 @@ function validateForm() {
     return false;
   } else {
     document.getElementById("errorname").innerHTML = "";
+  }
+
+  if(name.value.match(onlyLetters)) { 
+  }
+  else{
+    document.getElementById("errorname").innerHTML = "";
+      alert("Ingrese solo letras en el nombre por favor");
+      return false
   }
 
   if (email.value == "") {
