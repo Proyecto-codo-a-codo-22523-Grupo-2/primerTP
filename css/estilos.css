@@ -121,6 +121,13 @@ h2{
   font-weight: bolder;
 }
 
+.llamenos-contacto{
+  padding: 30px;
+}
+
+.consulta-contacto {
+  padding: 30px;
+}
 .card2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -134,8 +141,19 @@ h2{
 .card2 img {
   width: 100%;
 }
+.tituloEquipo {
+  padding: 30px;
+}
 
 /*Contacto form */
+.secContacto {
+  padding: 30px;
+}
+.tituloContacto {
+  padding: 20px;
+}
+
+
 .form-style {
   margin: 10px auto;
   width: 400px;
