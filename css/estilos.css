@@ -76,28 +76,41 @@ img.decoracion-top-index-main {
   grid-auto-rows: minmax(200px, auto);
 }
 
-/*Nosotros wrapper*/
+h2{
+  padding-bottom: 14px;
+}
+.mainHome {
+  padding: 30px;
+  margin-top: 10px;
+}
 
-/* .wrapper2 {
-  display: grid;
-  grid-template-columns: 2;
-  grid-auto-rows: minmax(300px, auto);
-} */
+.mainHome h3{
+  padding: 30px;
+  margin: 15px;
+}
+.mainHome h2{padding: 30px;}
 
-.wrapper2 {
-  display: grid;
-  grid-auto-rows: minmax(300px, auto);
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 30px;
+.epigraf{
+  text-align: center;
+}
+
+.mainNosotros{
   padding: 30px;
 }
-.text:nth-of-type(2) {
-  grid-column: 2;
-  grid-row: 2;
+
+.image{
+  max-width: 100%;
+  padding: 30px;
 }
+.text{
+  padding:30px;
+}
+
+
 .equipo {
   display: flex;
-
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .llamenos-contacto span{
@@ -107,11 +120,15 @@ img.decoracion-top-index-main {
 .card2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
-  margin: auto;
   text-align: center;
   font-family: "Lora", serif, "Fira Sans", sans-serif;
   background-color: var(--color-terciario);
   border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.card2 img {
+  width: 100%;
 }
 
 /*Contacto form */
