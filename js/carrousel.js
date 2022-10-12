@@ -36,11 +36,11 @@ function cargoContenidoCarrousel() {
             const clone = templateCardCarrousel.cloneNode(true)
         
             const img = producto.img
-            const nombre = producto.nombre
-            const precio = producto.precio
-            const descripcion = producto.descripcion
+            const nombreProducto = producto.nombre
+            const precioProducto = producto.precio
+            const descripcionProducto = producto.descripcion
 
-            let imgAlt = `Imágen ${producto.nombre}`
+            let imgAlt = `Imágen ${nombreProducto}`
 
             let linkDelVerMas
             if(producto.categoria == "comercial") {
@@ -57,9 +57,9 @@ function cargoContenidoCarrousel() {
             clone.querySelector("img").src = `.${img}`
             clone.querySelector("img").alt = imgAlt
         
-            clone.querySelector("h4").innerHTML = nombre
-            clone.querySelector(".precio").innerHTML = precio
-            clone.querySelector(".descripcion").innerHTML = descripcion
+            clone.querySelector("h4").innerHTML = nombreProducto
+            clone.querySelector(".precio").innerHTML = precioProducto
+            clone.querySelector(".descripcion").innerHTML = descripcionProducto
         
             clone.querySelector("a").href = linkDelVerMas
         
