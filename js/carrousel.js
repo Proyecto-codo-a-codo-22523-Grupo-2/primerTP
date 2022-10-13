@@ -9,20 +9,19 @@ const fragment = document.createDocumentFragment();
 let jsonProductos
 let cantidadProductosDestacados = 0
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch("https://recikli-171c9-default-rtdb.firebaseio.com/productos.json")
-    .then((response)=>response.json())
-    .then((json)=>{
-        jsonProductos = json
-        jsonProductos.forEach(producto=>{
-            if(producto.destacado){
-                ++cantidadProductosDestacados
-            }
-        })
-        cargoContenidoCarrousel()
-        cargoControladoresCarrousel()
-        agregoEventosCarrousel()
+
+fetch("https://recikli-171c9-default-rtdb.firebaseio.com/productos.json")
+.then((response)=>response.json())
+.then((json)=>{
+    jsonProductos = json
+    jsonProductos.forEach(producto=>{
+        if(producto.destacado){
+            ++cantidadProductosDestacados
+        }
     })
+    cargoContenidoCarrousel()
+    cargoControladoresCarrousel()
+    agregoEventosCarrousel()
 })
 
 
