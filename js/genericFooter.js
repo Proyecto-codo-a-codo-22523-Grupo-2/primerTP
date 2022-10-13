@@ -35,11 +35,11 @@ let contenidoFooter = `
 <div class="redes">
     <h4>Redes</h4>
     <ul>
-        <li><a href="#"><img src="${rutaRelativa()}/recursos/facebook-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${rutaRelativa()}/recursos/instagram-alt-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${rutaRelativa()}/recursos/youtube-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${rutaRelativa()}/recursos/twitter-logo-24.png"/></a></li>
-        <li><a href="#"><img src="${rutaRelativa()}/recursos/linkedin-logo-24.png"/></a></li>
+        <li><a href="https://www.facebook.com/"><img src="${rutaRelativa()}/recursos/facebook-logo-24.png"/></a></li>
+        <li><a href="https://www.instagram.com/"><img src="${rutaRelativa()}/recursos/instagram-alt-logo-24.png"/></a></li>
+        <li><a href="https://www.youtube.com/"><img src="${rutaRelativa()}/recursos/youtube-logo-24.png"/></a></li>
+        <li><a href="https://twitter.com/"><img src="${rutaRelativa()}/recursos/twitter-logo-24.png"/></a></li>
+        <li><a href="https://www.linkedin.com/"><img src="${rutaRelativa()}/recursos/linkedin-logo-24.png"/></a></li>
     </ul>
 </div>
 
