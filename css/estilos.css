@@ -233,10 +233,6 @@ textarea {
   gap: 20px;
 }
 
-#filtro-productos {
-  margin: 15px;
-}
-
 /*Tarjeta de Producto */
 .tarjeta-de-producto {
   box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
